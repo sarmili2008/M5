@@ -9,9 +9,18 @@ Write a C program to convert a 23.65 into 25 using pointer
 4.	Print the modified value.
 
 ## PROGRAM:
-
+#include<stdio.h>
+int main(){
+    float n=23.65;
+    float *ptr = &n;
+    printf("Original number: %.2f\n", *ptr);
+    *ptr = 25.0;
+    printf("modified number: %.2f\n", *ptr);
+    return 0;
+}
 ## OUTPUT:
- 	
+Original number: 23.65
+modified number: 25.00
 
 
 
@@ -45,8 +54,23 @@ Write a C program to calculate the Product of first 12 natural numbers using Rec
 6.	Print the result, indicating it is the product of the first 12 natural numbers.
 
 ## PROGRAM:
+#include<stdio.h>
+unsigned long long product(int n){
+   if(n==1){
+       return 1;
+   }else{
+      return n*product(n-1);
+   }
+}
+int main(){
+    int n=12;
+    unsigned long long result;
+    result = product(n);
+    printf("product of first 12 natural numbers is: %llu\n",result);
+    return 0;
+}
 ## OUTPUT:
-         		
+ product of first 12 natural numbers is: 479001600       		
 ## RESULT:
 
 Thus the program has been executed successfully.
@@ -68,11 +92,36 @@ Write C Program to find Sum of each row of a Matrix
 4.	Print the sum for each row.
 
 ## PROGRAM:
-
+#include<stdio.h>
+int main(){
+   int m,n,i,j,s=0;
+   scanf("%d %d ",&m,&n);
+   int arr[m][n];
+   for(i=0;i<m;i++){
+       for(j=0;j<n;j++){
+          scanf("%d",&arr[i][j]);
+       }    
+   }
+   printf("Sum of each row:\n");
+    for(i=0;i<m;i++){
+       for(j=0;j<n;j++){
+          sum+=arr[i][j];
+       } 
+       printf("row %d sum = %d\n",i+1,s);
+   }
+   return 0;
+}
 
 
 ## OUTPUT
-
+3 3
+1 2 3
+4 5 6 
+7 8 9
+Sum of each row:
+row 1 sum = 6
+row 2 sum = 15
+row 3 sum = 24
 
  
  
@@ -96,10 +145,38 @@ Write C program for the below pyramid string pattern. Enter a string: PROGRAM En
 5.	End the program.
 
 ## PROGRAM:
-
-
+#include<stdio.h>
+#include<string.h>
+int main(){
+  char str[100];
+  int i,j,len;
+  scanf("%s", str);
+  len = strlrn(str);
+  int sp=10;
+  int k=0;
+  int y=0;
+  for(i=1;i<=5;i++){
+     for(int s=1;s<=sp;s++){
+        printf(" ");
+      }
+     for(j=0;j<=y;j++){
+        printf("%c" ,str[k]);
+        k++;
+        if(str[k]=='\0')
+            k=0;
+     }
+     printf("\n");
+     sp-=1;
+     y+=2;
+  }
+}
  ## OUTPUT
-
+program
+     p
+    rog
+   rampr
+  ogrampr
+ ogramprog
  
 
 ## RESULT
@@ -132,10 +209,38 @@ Step 5: Loop from i = 0 to i < n:
 Step 6: End the program.
 
 ## PROGRAM
-
+#include<stdio.h>
+int main(){
+    int arr[10];
+    int *parr;
+    int i,n;
+    parr = arr;
+    scanf("%d',&n);
+    if(n>0){
+        printf("please enter up to 10 elements only.\n");
+        return 1;
+    }
+    for(i=0;i<n;i++){
+      scanf("%d",(parr+i));
+    }
+    printf("the  array elements are:\n");
+     for(i=0;i<n;i++){
+        printf("%d ",*(parr+i));
+     }
+     printf("\n");
+     return 0;
+}
 ## OUTPUT
-
- 
+8
+12
+24
+36
+48
+60
+72
+84
+ the  array elements are:
+ 12 24 36 48 60 72 84
 
 ## RESULT
 
